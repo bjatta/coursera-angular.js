@@ -46,13 +46,16 @@
 		$scope.emptyDishWarning = function(){
 			if (!$scope.lunchArray.length) {
 				$scope.dishResult  = 'alert alert-danger';
+				$scope.inputBorderColor = 'red';
 				return 'Please enter data first';
 			}
 			if ($scope.emptyDish.length) {
 				$scope.dishResult  = 'alert alert-danger';
+				$scope.inputBorderColor = 'yellow';
 				return 'Why U serve ' + $scope.emptyDish.length + ' empty Dish?';
 			}
 			$scope.dishResult  = '';
+			$scope.inputBorderColor = 'green';
 			return '';
 		}
 
