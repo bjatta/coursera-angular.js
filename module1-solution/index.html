@@ -21,8 +21,8 @@
          <div class="form-group">
              <button class="btn btn-default" ng-click="solveFoodList();">Check If Too Much</button>
          </div>
-         <div class="form-group message">{{emptyDishWarning();}}</div>
-         <div class="form-group message">{{resultToWord();}}{{}}
+         <div class="form-group message {{dishResult}}">{{solveFoodList();emptyDishWarning();}}</div>
+         <div class="form-group message {{lunchResult}}">{{resultToWord();}}{{}}
          </div>
    </div>
 
