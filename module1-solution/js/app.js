@@ -44,9 +44,10 @@
 		}
 
 		$scope.emptyDishWarning = function(){
-			if (!$scope.lunchArray.length) 
+			if (!$scope.lunchArray.length) {
 				$scope.dishResult  = 'alert alert-danger';
 				return 'Please enter data first';
+			}
 			if ($scope.emptyDish.length) {
 				$scope.dishResult  = 'alert alert-danger';
 				return 'Why U serve ' + $scope.emptyDish.length + ' empty Dish?';
@@ -54,6 +55,8 @@
 			$scope.dishResult  = '';
 			return '';
 		}
+
+		$scope.solveFoodList();
 	}
 }
 )();
