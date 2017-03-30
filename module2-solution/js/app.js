@@ -1,77 +1,62 @@
 (function (){
+	'use strict';
 	angular.module('ShoppingListCheckOff', [])
 		.controller('ToBuyController', ToBuyController)
 		.controller('BoughtController', BoughtController)
-		.factory('ShoppingListFactory', ShoppingListFactory);
+		.service('ShoppingListService', ShoppingListService);
 
-	ToBuyController.$inject  = ['ShoppingListFactory'];
-	function ToBuyController(ShoppingListFactory){
+	ToBuyController.$inject  = ['ShoppingListService'];
+	function ToBuyController(ShoppingListService){
 		var list1 = this;
-		var toBuyList = ShoppingListFactory(10);
 
-		toBuyList.addItem('Pepto Bismol','10 bottles');
-		toBuyList.addItem('Pepto Bismol Original','11 bottles');
-		toBuyList.addItem('Pepto Bismol Cherry','12 bottles');
-		toBuyList.addItem('Cherry Pepto Max','14 bottles');
-		toBuyList.addItem('Cherry Pepto Max','14 bottles');
-		toBuyList.addItem('Pepto Bismol','10 bottles');
-		toBuyList.addItem('Pepto Bismol Original','11 bottles');
-		toBuyList.addItem('Pepto Bismol Cherry','12 bottles');
-		toBuyList.addItem('Cherry Pepto Max','14 bottles');
-		toBuyList.addItem('Cherry Pepto Max','14 bottles');
-
-		try {
-			toBuyList.addItem('not will be shown','any times');
-    	} catch (error) {
-      			list1.errorMessage = error.message;
-    }
-		list1.items = toBuyList.getItems();
+		list1.items = ShoppingListService.getItems();
 	  	list1.buyItem = function (itemIndex) {
-	    	toBuyList.removeItem(itemIndex);
+	    	ShoppingListService.buyItem(itemIndex);
 	  	};
 	}
 
-	BoughtController.$inject = ['ShoppingListFactory'];
-	function BoughtController(ShoppingListFactory){
+	BoughtController.$inject = ['ShoppingListService'];
+	function BoughtController(ShoppingListService){
 		var list2 = this;
-		var boughtList = ShoppingListFactory();
-
-		list2.items = boughtList.getItems();
-		list2.addItem = function (itemName,itemQuantity) {
-			boughtList.addItem(itemName,itemQuantity);
-		}
+		list2.items = ShoppingListService.getBoughtItems();
 	}
 
-	function ShoppingListService(itemsQuantity) {
+	function ShoppingListService() {
 	  var service = this;
-	  var items = [];
-	  service.addItem = function (itemName, itemQuantity) {
-	    if ((itemsQuantity === undefined) ||
-	        (itemsQuantity !== undefined) && (items.length < itemsQuantity)) {
-	      var item = {
-	        item_quantity: itemQuantity,
-	        item_name: itemName
-	      };
-	      items.push(item);
-	    }
-	    else {
-	      throw new Error("Max items (" + itemsQuantity + ") reached.");
-	    }
-	  };
+	  var items = [
+	  		{item_name:'Pepto Bismol',
+	  			item_quantity:'10 bottles'},
+	  		{item_name:'Pepto Bismol Original',
+	  			item_quantity:'11 bottles'},
+	  		{item_name:'Pepto Bismol Cherry',
+	  			item_quantity:'12 bottles'},
+	  		{item_name:'Cherry Pepto Max',
+	  			item_quantity:'14 bottles'},
+	  		{item_name:'Cookie',
+	  			item_quantity:'16 bags'},
+	  		{item_name:'ChokoPie',
+	  			item_quantity:'2 bags'},
+	  		{item_name:'Lime',
+	  			item_quantity:'10 pcs.'},
+	  		{item_name:'Orange',
+	  			item_quantity:'1.5 pound'},
+	  		{item_name:'0.3 pepsi',
+	  			item_quantity:'2 bottles'},
+	  		{item_name:'Sprite',
+	  			item_quantity:'1 glass'}
+			];
+	  var boughtItems = [];
 
-	  service.removeItem = function (itemIndex) {
-	    items.splice(itemIndex, 1);
+	  service.buyItem = function (itemIndex) {
+	    boughtItems.push(items.splice(itemIndex, 1)[0]);
+	    console.log(items,boughtItems);
 	  };
 	  service.getItems = function () {
 	    return items;
 	  };
-	}
-
-	function ShoppingListFactory() {
-	  var factory = function (itemsQuantity) {
-	    return new ShoppingListService(itemsQuantity);
+	  service.getBoughtItems = function () {
+	    return boughtItems;
 	  };
-	  return factory;
 	}
 }
 )();

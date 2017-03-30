@@ -8,21 +8,22 @@
   </head>
   <script src="js/angular.min.js"></script>
   <script src="js/app.js"></script>
+<!--   <script src="js/app.min.js"></script> -->
 <body ng-app="ShoppingListCheckOff">
   <div class="container">
   <h1>Shopping List Check Off</h1>
 
-  <div ng-controller="BoughtController as list2" class="row">
+  <div class="row">
 
     <div ng-controller="ToBuyController as list1" class="col-md-6">
      <h2>To Buy:</h2>
      <ol>
-       <li ng-repeat='item in list1.items'>{{item.item_quantity}} of {{item.item_name}}<button ng-click="list1.buyItem($Index);list2.addItem(item.item_name,item.item_quantity);" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart"></span> buy </button></li>
+       <li ng-repeat='item in list1.items'>{{item.item_quantity}} of {{item.item_name}}<button ng-click="list1.buyItem($Index);" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart"></span> buy </button></li>
      </ol>
      <div ng-if='!list1.items.length' class="emptyMessage">Everything is bought!</div>
     </div>
 
-    <div class="col-md-6">
+    <div ng-controller="BoughtController as list2" class="col-md-6">
      <h2>Already Bought:</h2>
      <ol>
        <li ng-repeat='item in list2.items'>Bought: {{item.item_quantity}} of {{item.item_name}}</li>
