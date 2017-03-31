@@ -22,12 +22,11 @@
 	}
 
 	function itemsLoaderIndicatorDirectiveController(){
-
 	}
 
 	function foundItemsDirective() {
 	  var ddo = {
-	    templateUrl: 'loader/foundItems.template.html',
+	    templateUrl: 'foundItems.html',
 			scope: {
 				items: '<',
 				myTitle: '@title',
@@ -42,7 +41,6 @@
 	}
 
 	function foundItemsDirectiveController(){
-
 	}
 
 	MenuService.$inject=['$http','ApiBasePath'];
@@ -79,7 +77,8 @@
 			}
 
 			menu.forEach(function(el){
-				if ((el.name.toLowerCase().indexOf(matchingString.toLowerCase())+1)) found.push(el);
+				if ((el.name.toLowerCase().indexOf(matchingString.toLowerCase())+1)||
+					(el.description.toLowerCase().indexOf(matchingString.toLowerCase())+1)) found.push(el);
 			});
 			return found;
 		}

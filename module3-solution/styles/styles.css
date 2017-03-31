@@ -74,3 +74,12 @@ div.my-loader {
 
 ol.just-list {
 }
+
+.trash-bin {
+  padding:0.2em;
+  font-size: 0.6em;
+}
+
+li span.description {
+  font-size: 0.7em;
+}

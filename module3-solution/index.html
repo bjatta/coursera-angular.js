@@ -17,20 +17,22 @@
     <div class="form-group narrow-button">
       <button ng-click='menu.getItems(menu.searchString);' class="btn btn-primary">Narrow It Down For Me!</button>
     </div>
-<!--     <items-loader-indicator></items-loader-indicator>
+<!--     <items-loader-indicator></items-loader-indicator> -->
      <section>
-        <found-items ng-repeat="item in menu.items" found-items="...." on-remove="...."><br>{{ item.id }}:{{ item.name }}</found-items>
+        <found-items></found-items>
     </section>
-     -->    <section>
-      <h3>List of {{menu.items.length}} Menu:</h3>
+    <section>
+      <h3 ng-show='menu.items.length'>List of {{menu.items.length}} Menu:</h3>
+      <div ng-hide='menu.items.length'> ... found nothing ...</div>
       <ol class="just-list">
-        <li ng-repeat="item in menu.items"><button ng-click="menu.removeItem($index);" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-trash"></span></button>
-          <a href="" ng-click="menu.showDescription($index);">{{ item.name }}</a>
+        <li ng-repeat="item in menu.items"><button ng-click="menu.removeItem($index);" class="trash-bin btn btn-primary btn-default"><span class="glyphicon glyphicon glyphicon-trash"></span></button>
+          <a href="" ng-click="menu.showDescription($index);">{{ item.short_name }}.{{ item.name }}</a>
+          <span class='description'>{{ item.description }}</span>
         </li>
       </ol>
       <div class="description" ng-show='menu.description' ng-model="menu.description">{{menu.description}}</div>
     </section>
-  <div ng-hide='menu.items.length' class="my-loader"><img src="img/menu_loader.gif"></div>
+    <div ng-hide='menu.items.length' class="my-loader"><img src="img/menu_loader.gif"></div>
   </div>
 </body>
 </html>
