@@ -10,7 +10,6 @@
 
 	function itemsLoaderIndicatorDirective(){
 		var ddo = {
-			templateUrl: 'loader/itemsloaderindicator.template.html',
 			scope: {
 				items: '<',
 			},
@@ -26,7 +25,7 @@
 
 	function foundItemsDirective() {
 	  var ddo = {
-	    templateUrl: 'foundItems.html',
+	    templateUrl: 'loader/foundItems.template.html',
 			scope: {
 				items: '<',
 				myTitle: '@title',
