@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+<body ng-app="NarrowItDownApp">
+   <div ng-controller="NarrowItDownController as menu" class="container">
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+    <div class="form-group">
+      <input type="text" placeholder="search term" class="form-control" ng-model="menu.searchString">
+    </div>
+    <div class="form-group narrow-button">
+      <button ng-click='menu.getItems(menu.searchString);' class="btn btn-primary">Narrow It Down For Me!</button>
+    </div>
+<!--     <items-loader-indicator></items-loader-indicator>
+     <section>
+        <found-items ng-repeat="item in menu.items" found-items="...." on-remove="...."><br>{{ item.id }}:{{ item.name }}</found-items>
+    </section>
+     -->    <section>
+      <h3>List of {{menu.items.length}} Menu:</h3>
+      <ol class="just-list">
+        <li ng-repeat="item in menu.items"><button ng-click="menu.removeItem($index);" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-trash"></span></button>
+          <a href="" ng-click="menu.showDescription($index);">{{ item.name }}</a>
+        </li>
+      </ol>
+      <div class="description" ng-show='menu.description' ng-model="menu.description">{{menu.description}}</div>
+    </section>
+  <div ng-hide='menu.items.length' class="my-loader"><img src="img/menu_loader.gif"></div>
+  </div>
+</body>
+</html>
