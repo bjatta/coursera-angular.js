@@ -19,10 +19,9 @@
     </div>
     <items-loader-indicator></items-loader-indicator>
      <section>
-           <found-items items="menu.items" my-title='found {{menu.items.length}} items' on-remove="menu.removeItem({index: $index})"></found-items>
+           <found-items items="menu.items" my-title='found {{menu.items.length}} items' on-remove="menu.removeItem(index)"></found-items>
       </section>
     <section>
-      <h3 ng-show='menu.items.length'>List of {{menu.items.length}} Menu:</h3>
       <div ng-hide='menu.items.length'> ... found nothing ...</div>
       <div class="description" ng-show='menu.description' ng-model="menu.description">{{menu.description}}</div>
     </section>

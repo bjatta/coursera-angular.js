@@ -41,6 +41,7 @@
 	}
 
 	function foundItemsDirectiveController(){
+		var foundItems = this;
 	}
 
 	MenuService.$inject=['$http','ApiBasePath'];
