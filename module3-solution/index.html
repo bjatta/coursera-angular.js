@@ -20,13 +20,17 @@
     <items-loader-indicator ng-hide='menu.dataLoaded'></items-loader-indicator>
      <section class="menu-list-container">
       <div ng-show='menu.ci.id' class="description panel panel-primary">
-      <div class="panel-heading"><h3 class="panel-title">{{menu.ci.id}} : {{menu.ci.short_name}} — {{menu.ci.name}}</h3></div>
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            {{menu.ci.id}} : {{menu.ci.short_name}} — {{menu.ci.name}}
+          </h3>
+        </div>
         <div class="panel-body">{{menu.ci.description}}
-          <p>
+          <div class="price">
             <span class="badge badge-default badge-pill">${{menu.ci.price_large}}
               <span ng-show='menu.ci.price_small'> or ${{menu.ci.price_small}}</span>
               </span>
-          </p>
+          </div>
         </div>
       </div>
            <found-items items="menu.items" title='found {{menu.items.length}} items' on-remove="menu.removeItem(index)" on-show="menu.showDescription(index)"></found-items>

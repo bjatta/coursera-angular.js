@@ -90,8 +90,8 @@
 			return found;
 		}
 		service.getItemDecsription = function (index){
-			if ((index === undefined) || !menu.length || index > menu.length) return ' - ';
-			return menu[index];
+			if ((index === undefined) || !found.length || index > found.length) return ' - ';
+			return found[index];
 		}
 		service.removeItem = function (itemIndex) {
 			removed.push(found.splice(itemIndex, 1)[0]);

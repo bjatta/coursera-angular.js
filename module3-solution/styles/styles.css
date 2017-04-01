@@ -59,12 +59,13 @@ section.menu-list-container {
 }
 div.description {
   float:right;
-  position: absolute;
-  top: 1em;
-  right: 1em;
-  width: 40%;
+  position: fixed;
+  top: 10vw;
+  right: 1vw;
+  width: 60%;
   margin: 0.5em;
   z-index: 1;
+  font-size: 1.5em;
 }
 div.my-loader {
   position: absolute;
@@ -101,4 +102,13 @@ ol.just-list {
 
 span.badge {
 	background-color: #337ab7;
+}
+
+div.panel-body {
+	position: relative;
+}
+div.price {
+	position: absolute;
+	top: -0.1em;
+	left: 0.1em;
 }
