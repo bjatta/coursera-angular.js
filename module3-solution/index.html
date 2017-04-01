@@ -17,15 +17,14 @@
     <div class="form-group narrow-button">
       <button ng-click='menu.getItems(menu.searchString);' class="btn btn-primary">Narrow It Down For Me!</button>
     </div>
-    <items-loader-indicator></items-loader-indicator>
+    <items-loader-indicator ng-hide='menu.items.length'></items-loader-indicator>
      <section>
-           <found-items items="menu.items" my-title='found {{menu.items.length}} items' on-remove="menu.removeItem(index)"></found-items>
+           <found-items items="menu.items" title='found {{menu.items.length}} items' on-remove="menu.removeItem(index)" on-show="menu.showDescription(index)"></found-items>
       </section>
     <section>
       <div ng-hide='menu.items.length'> ... found nothing ...</div>
       <div class="description" ng-show='menu.description' ng-model="menu.description">{{menu.description}}</div>
     </section>
-    <div ng-hide='menu.items.length' class="my-loader"><img src="img/menu_loader.gif"></div>
   </div>
 </body>
 </html>

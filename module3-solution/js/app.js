@@ -31,7 +31,8 @@
 				items: '<',
 				myTitle: '@title',
 				badRemove: '=',
-				onRemove: '&'
+				onRemove: '&',
+				onShow :  '&'
 			},
 			controller: foundItemsDirectiveController,
 			controllerAs: 'foundItems',
@@ -41,7 +42,7 @@
 	}
 
 	function foundItemsDirectiveController(){
-		var foundItems = this;
+		var menu = this;
 	}
 
 	MenuService.$inject=['$http','ApiBasePath'];
@@ -85,8 +86,8 @@
 		}
 
 		service.getItemDecsription = function (index){
-			if (!menu.length || index > menu.length) return '';
-			console.log(menu[index]);
+			if (!menu.length || index > menu.length) return ' - ';
+			console.log('service:'+menu[index]);
 			return "id: "+menu[index].id+" "+menu[index].description;
 		}
 
@@ -106,6 +107,7 @@
 		}
 
 		menu.showDescription = function (itemIndex) {
+			console.log('2.' + itemIndex);
 			menu.description = MenuSearchService.getItemDecsription(itemIndex);
 		}
 
