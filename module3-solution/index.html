@@ -17,7 +17,7 @@
     <div class="form-group narrow-button">
       <button ng-click='menu.getItems(menu.searchString);' class="btn btn-primary">Narrow It Down For Me!</button>
     </div>
-    <items-loader-indicator ng-hide='menu.items.length'></items-loader-indicator>
+    <items-loader-indicator ng-hide='menu.dataLoaded'></items-loader-indicator>
      <section class="menu-list-container">
       <div ng-show='menu.ci.id' class="description panel panel-default">
       <div class="panel-heading"><h3 class="panel-title">{{menu.ci.id}} : {{menu.ci.short_name}} — {{menu.ci.name}}</h3></div>

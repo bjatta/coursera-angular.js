@@ -105,6 +105,7 @@
 
 		promise.then(function(response){
 			menu.items = MenuSearchService.getMatchedMenuItems();
+			menu.dataLoaded = true;
 			return response;
 		});
 
