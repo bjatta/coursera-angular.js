@@ -22,6 +22,8 @@
 	}
 
 	function itemsLoaderIndicatorDirectiveController(){
+		var loader = this;
+		loader.dataLoaded = false;
 	}
 
 	function foundItemsDirective() {
@@ -69,7 +71,6 @@
   		promise.then(function (response) {
     		menu = response.data.menu_items;
     	});
-
 		service.getMatchedMenuItems = function (matchingString) {
 			found =[];
 			if (!matchingString) {
@@ -77,19 +78,16 @@
 					found.push(el);});
 				return found;
 			}
-
 			menu.forEach(function(el){
 				if ((el.name.toLowerCase().indexOf(matchingString.toLowerCase())+1)||
 					(el.description.toLowerCase().indexOf(matchingString.toLowerCase())+1)) found.push(el);
 			});
 			return found;
 		}
-
 		service.getItemDecsription = function (index){
 			if ((index === undefined) || !menu.length || index > menu.length) return ' - ';
 			return menu[index];
 		}
-
 		service.removeItem = function (itemIndex) {
 			removed.push(found.splice(itemIndex, 1)[0]);
 		};
@@ -98,20 +96,18 @@
 	NarrowItDownController.$inject =['MenuSearchService'];
 	function NarrowItDownController (MenuSearchService){
 		var menu = this;
+		menu.dataLoaded = false;
 		menu.items = MenuSearchService.getMatchedMenuItems();
 		menu.ci = 0;
-
 
 		menu.getItems = function (){
 			menu.ci = 0;
 			menu.items = MenuSearchService.getMatchedMenuItems(menu.searchString);
 		}
-
 		menu.showDescription = function (itemIndex) {
 			menu.ci = 0;
 			menu.ci = MenuSearchService.getItemDecsription(itemIndex);
 		}
-
 		menu.removeItem = function (itemIndex) {
 			menu.ci = 0;
 			MenuSearchService.removeItem(itemIndex);

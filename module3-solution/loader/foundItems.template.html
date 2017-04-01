@@ -1,7 +1,10 @@
 <h3 class='' ng-show='foundItems.items.length'>{{ foundItems.myTitle }}</h3>
 <ol class="just-list">
-<li ng-repeat="item in foundItems.items"><button ng-click="foundItems.onRemove({index:$index});" class="trash-bin btn btn-primary btn-default"><span class="glyphicon glyphicon glyphicon-trash"></span></button>
-  <a ng-click="foundItems.onShow({index:$index});">{{ item.short_name }} - {{ item.name }}</a>
-  <span class='description'>{{ item.description }}</span>
+<li ng-repeat="item in foundItems.items" class="menu-list row"><section class="col-xs-1">
+	<button ng-click="foundItems.onRemove({index:$index});" class="trash-bin btn btn-primary btn-default"><span class="glyphicon glyphicon glyphicon-trash"></span></button></section>
+	<section class="item-short-name col-xs-4">
+	  <a ng-click="foundItems.onShow({index:$index});" class="in-li">{{ item.short_name }} - {{ item.name }}</a>
+</section>
+  <p class="in-menu-list col-xs-7" ><span class='description'>{{ item.description }}</span></p>
 </li>
 </ol>

@@ -1,3 +1,6 @@
+body {
+  box-sizing: border-box;
+}
 h1 {
   margin-bottom: 30px;
 }
@@ -50,7 +53,7 @@ input[type="text"] {
     transform: rotate(360deg);
   }
 }
-section {
+section.menu-list-container {
   clear: left;
   position:relative;
 }
@@ -66,7 +69,6 @@ div.description {
   background-color: white;
   z-index: 1;
 }
-
 div.my-loader {
   position: absolute;
   width: 100;
@@ -74,19 +76,20 @@ div.my-loader {
   left: 2em;
 }
 
-ol.just-list {
-  position: relative;
-}
-
-.trash-bin {
-  padding:0.2em;
-  font-size: 0.6em;
-}
-
-li span.description {
-  font-size: 0.7em;
-}
-
 h1 {
   clear: right;
+}
+
+li *{
+  vertical-align: middle;
+  display: inline-block;
+}
+li:before {
+  padding: 0;
+  margin: 0;
+  margin-top: -2.5em;
+  text-align: right;
+}
+section.item-short-name{
+  padding-left: 2em;
 }
