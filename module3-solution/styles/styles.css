@@ -80,15 +80,15 @@ h1 {
   clear: right;
 }
 
-li *{
-  vertical-align: middle;
-  display: inline-block;
-}
 li:before {
   padding: 0;
   margin: 0;
-  margin-top: -2.5em;
-  text-align: right;
+  position: absolute;
+}
+
+li p {
+	line-height: 1em;
+	font-size: .7em;
 }
 section.item-short-name{
   padding-left: 2em;
