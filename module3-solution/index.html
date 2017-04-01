@@ -24,12 +24,6 @@
     <section>
       <h3 ng-show='menu.items.length'>List of {{menu.items.length}} Menu:</h3>
       <div ng-hide='menu.items.length'> ... found nothing ...</div>
-      <ol class="just-list">
-        <li ng-repeat="item in menu.items"><button ng-click="menu.removeItem($index);" class="trash-bin btn btn-primary btn-default"><span class="glyphicon glyphicon glyphicon-trash"></span></button>
-          <a href="" ng-click="menu.showDescription($index);">{{ item.short_name }}.{{ item.name }}</a>
-          <span class='description'>{{ item.description }}</span>
-        </li>
-      </ol>
       <div class="description" ng-show='menu.description' ng-model="menu.description">{{menu.description}}</div>
     </section>
     <div ng-hide='menu.items.length' class="my-loader"><img src="img/menu_loader.gif"></div>

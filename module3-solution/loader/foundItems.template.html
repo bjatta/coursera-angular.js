@@ -1,7 +1,4 @@
 <h2>{{title}}</h2>
-<ol>
-	<li ng-repeat="item in foundItems.items" on-remove="foundItems.removeItem({index:$index})"><br>{{ item.short_name }}:{{ item.name }}</li>
-</ol>
 <ol class="just-list">
 <li ng-repeat="item in foundItems.items"><button ng-click="foundItems.removeItem($index);" class="trash-bin btn btn-primary btn-default"><span class="glyphicon glyphicon glyphicon-trash"></span></button>
   <a href="" ng-click="foundItems.showDescription($index);">{{ item.short_name }}.{{ item.name }}</a>
