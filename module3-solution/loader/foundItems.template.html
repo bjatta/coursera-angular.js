@@ -1,3 +1,4 @@
+<h2>{{title}}</h2>
 <ol>
-	<li ng-repeat="item in menu.items" on-remove="menu.removeItem({index:$index})"><br>{{ item.short-name }}:{{ item.name }}</li>
+	<li ng-repeat="item in foundItems.items" on-remove="menu.removeItem({index:$index})"><br>{{ item.short-name }}:{{ item.name }}</li>
 </ol>

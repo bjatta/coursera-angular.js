@@ -10,6 +10,7 @@
 
 	function itemsLoaderIndicatorDirective(){
 		var ddo = {
+	    	templateUrl: 'loader/itemsloaderindicator.template.html',
 			scope: {
 				items: '<',
 			},
