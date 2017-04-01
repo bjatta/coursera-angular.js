@@ -99,17 +99,21 @@
 	function NarrowItDownController (MenuSearchService){
 		var menu = this;
 		menu.items = MenuSearchService.getMatchedMenuItems();
+		menu.ci = {};
 
 
 		menu.getItems = function (){
+			menu.ci = {};
 			menu.items = MenuSearchService.getMatchedMenuItems(menu.searchString);
 		}
 
 		menu.showDescription = function (itemIndex) {
+			menu.ci = {};
 			menu.ci = MenuSearchService.getItemDecsription(itemIndex);
 		}
 
 		menu.removeItem = function (itemIndex) {
+			menu.ci = {};
 			MenuSearchService.removeItem(itemIndex);
 		}
 	}
