@@ -62,11 +62,8 @@ div.description {
   position: absolute;
   top: 1em;
   right: 1em;
-  border: 3px solid #369;
   width: 40%;
-  padding: 0.5em;
   margin: 0.5em;
-  background-color: white;
   z-index: 1;
 }
 div.my-loader {
@@ -81,9 +78,9 @@ h1 {
 }
 
 li:before {
-  padding: 0;
-  margin: 0;
-  position: absolute;
+  list-style: decimal;
+  color: red;
+  content: list-item;
 }
 
 li p {
@@ -92,4 +89,16 @@ li p {
 }
 section.item-short-name{
   padding-left: 2em;
+}
+
+li{
+	list-style: decimal;	
+}
+
+ol.just-list {
+	list-style: decimal;
+}
+
+span.badge {
+	background-color: #337ab7;
 }

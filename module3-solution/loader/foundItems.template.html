@@ -1,10 +1,11 @@
 <h3 class='' ng-show='foundItems.items.length'>{{ foundItems.myTitle }}</h3>
-<ol class="just-list">
-<li ng-repeat="item in foundItems.items" class="menu-list row"><section class="col-xs-1">
+<ol class="just-list list-group">
+<li ng-repeat="item in foundItems.items" class="menu-list row list-group-item panel-primary"><section class="col-xs-1">
 	<button ng-click="foundItems.onRemove({index:$index});" class="trash-bin btn btn-primary btn-default"><span class="glyphicon glyphicon glyphicon-trash"></span></button></section>
-	<section class="item-short-name col-xs-4">
-	  <a ng-click="foundItems.onShow({index:$index});" class="in-li">{{ item.short_name }} - {{ item.name }}</a>
+	<section class="item-short-name col-xs-6">
+	<span class="badge badge-default badge-pill">{{ item.short_name }}</span>
+	  <a ng-click="foundItems.onShow({index:$index});" class="in-li">{{ item.name }}</a>
 </section>
-  <p class="in-menu-list col-xs-7" ><span class='description'>{{ item.description }}</span></p>
+  <p class="in-menu-list col-xs-5" ><span class="badge badge-default badge-pill">${{item.price_large}}<span ng-show='item.price_small'> or ${{item.price_small}}</span></span><span class='description'> {{ item.description }}</span></p>
 </li>
 </ol>

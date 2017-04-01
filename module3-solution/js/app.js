@@ -120,6 +120,7 @@
 		menu.showDescription = function (itemIndex) {
 			menu.ci = 0;
 			menu.ci = MenuSearchService.getItemDecsription(itemIndex);
+			console.log(menu.ci);
 		}
 		menu.removeItem = function (itemIndex) {
 			menu.ci = 0;
