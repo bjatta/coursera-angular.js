@@ -28,11 +28,10 @@
 	  var ddo = {
 	    templateUrl: 'loader/foundItems.template.html',
 			scope: {
+				onRemove: '&',
 				items: '<',
 				myTitle: '@title',
-				badRemove: '=',
-				onRemove: '&',
-				onShow :  '&'
+				onShow :  '&',
 			},
 			controller: foundItemsDirectiveController,
 			controllerAs: 'foundItems',
@@ -43,6 +42,7 @@
 
 	function foundItemsDirectiveController(){
 		var menu = this;
+		var foundItems = this;
 	}
 
 	MenuService.$inject=['$http','ApiBasePath'];
@@ -86,9 +86,8 @@
 		}
 
 		service.getItemDecsription = function (index){
-			if (!menu.length || index > menu.length) return ' - ';
-			console.log('service:'+menu[index]);
-			return "id: "+menu[index].id+" "+menu[index].description;
+			if ((index === undefined) || !menu.length || index > menu.length) return ' - ';
+			return menu[index];
 		}
 
 		service.removeItem = function (itemIndex) {
@@ -100,15 +99,14 @@
 	function NarrowItDownController (MenuSearchService){
 		var menu = this;
 		menu.items = MenuSearchService.getMatchedMenuItems();
-		menu.description= "";
+
 
 		menu.getItems = function (){
 			menu.items = MenuSearchService.getMatchedMenuItems(menu.searchString);
 		}
 
 		menu.showDescription = function (itemIndex) {
-			console.log('2.' + itemIndex);
-			menu.description = MenuSearchService.getItemDecsription(itemIndex);
+			menu.ci = MenuSearchService.getItemDecsription(itemIndex);
 		}
 
 		menu.removeItem = function (itemIndex) {

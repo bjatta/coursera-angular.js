@@ -63,6 +63,8 @@ div.description {
   width: 40%;
   padding: 0.5em;
   margin: 0.5em;
+  background-color: white;
+  z-index: 1;
 }
 
 div.my-loader {
@@ -73,6 +75,7 @@ div.my-loader {
 }
 
 ol.just-list {
+  position: relative;
 }
 
 .trash-bin {
@@ -82,4 +85,8 @@ ol.just-list {
 
 li span.description {
   font-size: 0.7em;
+}
+
+h1 {
+  clear: right;
 }
