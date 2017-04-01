@@ -19,7 +19,7 @@
     </div>
     <items-loader-indicator ng-hide='menu.items.length'></items-loader-indicator>
      <section>
-      <div class="description panel panel-default" ng-show='menu.ci.id'>
+      <div ng-show='menu.ci.id' class="description panel panel-default">
       <div class="panel-heading"><h3 class="panel-title">{{menu.ci.id}} : {{menu.ci.short_name}} — {{menu.ci.name}}</h3></div>
         <div class="panel-body">{{menu.ci.description}}</div>
       </div>
