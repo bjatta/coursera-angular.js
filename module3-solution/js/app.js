@@ -60,17 +60,22 @@
 		};		
 	}
 
-	MenuSearchService.$inject=['MenuService'];
-	function MenuSearchService(MenuService){
+	MenuSearchService.$inject=['MenuService','$rootScope'];
+	function MenuSearchService(MenuService,$rootScope){
 		var service = this;
 		var menu = [];
 		var found = [];
 		var removed = [];
-		var promise = MenuService.getMenu();
-  		
-  		promise.then(function (response) {
-    		menu = response.data.menu_items;
-    	});
+		
+  		service.loadMenu = function (){
+  			var promise = MenuService.getMenu();
+
+	  		promise.then(function (response) {
+	    		menu = response.data.menu_items;
+	    		return response;
+	    	});
+	    	return promise;
+  		}
 		service.getMatchedMenuItems = function (matchingString) {
 			found =[];
 			if (!matchingString) {
@@ -96,8 +101,15 @@
 	NarrowItDownController.$inject =['MenuSearchService'];
 	function NarrowItDownController (MenuSearchService){
 		var menu = this;
+		var promise = MenuSearchService.loadMenu();
+
+		promise.then(function(response){
+			menu.items = MenuSearchService.getMatchedMenuItems();
+			return response;
+		});
+
 		menu.dataLoaded = false;
-		menu.items = MenuSearchService.getMatchedMenuItems();
+		
 		menu.ci = 0;
 
 		menu.getItems = function (){
