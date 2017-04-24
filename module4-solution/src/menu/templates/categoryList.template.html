@@ -1,5 +1,5 @@
 <ul class="menu-list">
-  <li ng-repeat="item in $ctrl.items" ui-sref="menuList({itemId: item.short_name})">
+  <li ng-repeat="item in $ctrl.items" ui-sref="menuList({category: item.short_name, itemId: $index})">
     <span class="category-short-name">{{ item.short_name }}</span>  {{ item.name }}
   </li>
 </ul>

@@ -22,12 +22,12 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     }
   })
   .state('menuList', {
-    url: '/menu-list/{itemId}',
+    url: '/menu-list/{category}',
     templateUrl: 'src/menu/templates/main-menuList.template.html',
     controller: 'MenuAppController as mainList',
     resolve: {
       items: ['$stateParams','MenuAppService',function ($stateParams,MenuAppService) {
-        return MenuAppService.getItems($stateParams.itemId);
+        return MenuAppService.getItems($stateParams.category);
       }]
     }
   })

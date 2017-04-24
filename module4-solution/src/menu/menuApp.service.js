@@ -4,12 +4,11 @@
 angular.module('MenuApp')
 .service('MenuAppService', MenuAppService);
 
-MenuAppService.$inject = ['$http','$stateParams']
-function MenuAppService($http,$stateParams) {
+MenuAppService.$inject = ['$http']
+function MenuAppService($http) {
   var service = this;
 
   service.getItems = function (category) {
-      console.log($stateParams.category);
       category = category || 'L';
       var response = $http({
           method: "GET",
