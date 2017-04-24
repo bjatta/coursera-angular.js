@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app='MenuApp'>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>No Cookie Shopping List</title>
+  </head>
+  <body>
+    <h1>Welcome to Premade No Cookie Shopping List</h1>
+
+    <ui-view></ui-view>
+
+    <indicator></indicator>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+
+    <script src="src/menu/menuApp.module.js"></script>
+    <script src="src/indicator/indicator.module.js"></script>
+
+    <script src="src/routes.js"></script>
+
+    <script src="src/menu/categoryList.component.js"></script>
+    <script src="src/menu/menuList.component.js"></script>
+    <script src="src/menu/menuApp.controller.js"></script>
+    <script src="src/menu/menuApp.service.js"></script>
+    <script src="src/menu/item-detail.controller.js"></script>
+
+    <script src="src/indicator/indicator.component.js"></script>
+
+  </body>
+</html>
