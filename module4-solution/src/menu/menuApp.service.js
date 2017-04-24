@@ -9,7 +9,7 @@ function MenuAppService($http,$stateParams) {
   var service = this;
 
   service.getItems = function (category) {
-      console.log($stateParams);
+      console.log($stateParams.category);
       category = category || 'L';
       var response = $http({
           method: "GET",
