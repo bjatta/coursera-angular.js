@@ -10,6 +10,14 @@ SignUpController.$inject = ['MenuService'];
 function SignUpController(MenuService) {
     var $ctrl = this;
     $ctrl.user= MenuService.getUserInfo() || {
+            firstName:'John',
+            lastName:'Doe',
+            email:'John@Doe.sky',
+            phone:'555-222-7777',
+            favoratedDish:'SP4',
+        };
+    if (!$ctrl.user.firstName)
+        $ctrl.user = {
             firstName:'Jonh',
             lastName:'Doe',
             email:'John@Doe.sky',
