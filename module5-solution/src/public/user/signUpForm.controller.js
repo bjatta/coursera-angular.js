@@ -31,6 +31,7 @@ function StudentController($scope,$rootScope,MenuService) {
             $ctrl.user.lastName = $scope.lastName;
             $ctrl.user.favoratedDish = $scope.favoratedDish;
             $ctrl.user.email = $scope.email;
+            console.log($scope);
         }
     }
 };

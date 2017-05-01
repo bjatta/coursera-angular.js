@@ -6,10 +6,12 @@
 angular.module('public')
 .controller('MyInfoController',MyInfoController);
 
-MyInfoController.$inject = ['$rootScope'];
-function MyInfoController($rootScope) {
+MyInfoController.$inject = ['$rootScope','ApiPath'];
+
+function MyInfoController($rootScope,ApiPath) {
     let $ctrl = this;
 
+    $ctrl.basePath = ApiPath;
     if ($rootScope.user) {
         $ctrl.user = $rootScope.user || {};
         $ctrl.user.firstName = $rootScope.user.firstName;

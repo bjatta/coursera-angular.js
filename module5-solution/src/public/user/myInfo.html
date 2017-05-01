@@ -10,7 +10,7 @@
                 <div class="col-sm-5">
                     <div class="menu-item-photo">
                         <div>{{mi.user.favoratedDish}}</div>
-                        <img class="img-responsive" width="250" height="150" ng-src="https://bjatta-ac5.herokuapp.com/images/{{mi.user.favoratedDish}}.jpg" alt="{{$ctrl.menuItem.name}}">
+                        <img class="img-responsive" width="250" height="150" ng-src="{{mi.basePath}}/images/{{mi.user.favoratedDish}}.jpg" alt="{{$ctrl.menuItem.name}}">
                     </div>
                     <div class="menu-item-price">{{$ctrl.menuItem.price_small | currency}}<span> {{$ctrl.menuItem.small_portion_name}}</span> {{$ctrl.menuItem.price_large | currency}} <span>{{$ctrl.menuItem.large_portion_name}}</span></div>
                 </div>
@@ -23,6 +23,5 @@
         </div>
     </div>
     <div ng-if="!mi.user"> <a ui-sref="public.signUp"  ui-sref-active="active"> SignUp first !</div>
-
 </body>
 </html>
