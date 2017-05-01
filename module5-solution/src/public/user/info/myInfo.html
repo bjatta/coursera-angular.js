@@ -1,12 +1,12 @@
 <h1>My Info</h1>
-<div ng-if="mi.user.firstName">
+<div ng-if="mi.user.firstName" class="row">
     <section class="row user-info">
-        <div class="col-xs-2 label">first name:</div>    <div class="col-xs-2">{{ mi.user.firstName }}</div>
-        <div class="col-xs-2 label">e-mail:</div>        <div class="col-xs-2">{{ mi.user.email }}</div>
+        <div class="col-xs-2 label user-info">first name:</div>    <div class="col-xs-2 user-info">{{ mi.user.firstName }}</div>
+        <div class="col-xs-2 label user-info">e-mail:</div>        <div class="col-xs-2 user-info">{{ mi.user.email }}</div>
     </section>
     <section class="row user-info">
-        <div class="col-xs-2 label">last name:</div>     <div class="col-xs-2">{{ mi.user.lastName }}</div>
-        <div class="col-xs-2 label">phone:</div>        <div class="col-xs-2">{{ mi.user.phone }}</div>
+        <div class="col-xs-2 label user-info">last name:</div>     <div class="col-xs-2 user-info">{{ mi.user.lastName }}</div>
+        <div class="col-xs-2 label user-info">phone:</div>        <div class="col-xs-2 user-info">{{ mi.user.phone }}</div>
     </section>
     <div class="menu-item-tile col-md-6">
         <div class="row">
@@ -25,4 +25,5 @@
         <hr class="visible-xs">
     </div>
 </div>
-<div ng-if="!mi.user.firstName"> <a ui-sref="public.signUp"  ui-sref-active="active"> SignUp first !</div>
+<div ng-if="!mi.user.firstName">Not Signed Up Yet.
+    <a ui-sref="public.signUp"  ui-sref-active="active"><h1> Sign up Now!. </h1></div>

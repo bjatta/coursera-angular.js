@@ -2,62 +2,131 @@
 <div class="row">
 <form name ="signUpForm" class="sign-up" novalidate>
     <section class="in-form">
-    <div class="label col-xs-3">first name:</div>
-    <input name = "firstname" type = "text" ng-model = "ctrl.user.firstName" required class="col-xs-9"
-           placeholder="John" pattern="[a-zA-Z]+">
-        <div class="row">
-            <span style = "color:red" ng-show = "signUpForm.firstname.$dirty && signUpForm.firstname.$invalid">
-                <span ng-show = "signUpForm.firstname.$error.required">First Name is required.</span>
-                <span ng-show = "signUpForm.firstname.$error.pattern">sorry, letters only</span>
-            </span>
+        <div class="label col-xs-3">first name:</div>
+        <input name = "firstname"
+               type = "text"
+               ng-model = "ctrl.user.firstName"
+               required
+               class="col-xs-9"
+               placeholder="John"
+               pattern="[a-zA-Z]+">
+            <div class="row">
+                <div class="col-xs-3"></div>
+                    <div ng-show = "signUpForm.firstname.$error.required"
+                         class="alert alert-danger col-xs-9">
+                        First Name is required.
+                    </div>
+                    <div ng-show = "signUpForm.firstname.$error.pattern"
+                         class="alert alert-danger col-xs-9">
+                        sorry, letters only
+                    </div>
+            </div>
+        <div class="label col-xs-3">last name: </div>
+        <input name = "lastname"  type = "text"
+               ng-model = "ctrl.user.lastName"
+               required class="col-xs-9"
+               placeholder="Doe"
+               pattern="[a-zA-Z]+">
+            <div class="row">
+                <div class="col-xs-3"></div>
+                    <div ng-show = "signUpForm.lastname.$error.required"
+                         class="alert alert-danger col-xs-9">
+                        Last Name is required.
+                    </div>
+                    <div ng-show = "signUpForm.lastname.$error.pattern"
+                         class="alert alert-danger col-xs-9">
+                        sorry, letters only
+                    </div>
+            </div>
+        <div class="label col-xs-3">e-mail: </div>
+        <input name = "email"
+               type = "email"
+               ng-model = "ctrl.user.email"
+               length = "100"
+               required
+               class="col-xs-9"
+               placeholder="John@Doe.sky"
+               pattern="(\w+@\w+\.\w+)">
+            <div class="row">
+                <div class="col-xs-3"></div>
+                <div ng-show = "signUpForm.email.$error.required"
+                     class="alert alert-danger col-xs-9">
+                    Email is required.
+                </div>
+                <div ng-show = "signUpForm.email.$error.pattern"
+                     class="alert alert-danger col-xs-9">
+                    Invalid email address. at least '@' and '.'
+                </div>
         </div>
-    <div class="label col-xs-3">last name: </div>
-    <input name = "lastname"  type = "text" ng-model = "ctrl.user.lastName" required class="col-xs-9"
-           placeholder="Doe" pattern="[a-zA-Z]+">
+        <div class="label col-xs-3">phone: </div>
+        <input name = "phone"
+               type = "phone"
+               ng-model = "ctrl.user.phone"
+               length = "100"
+               required
+               class="col-xs-9"
+               pattern="(\d{3})-(\d{3})-(\d{4})"
+               placeholder="Phone ###-###-####">
+            <div class="row">
+                <div class="col-xs-3"></div>
+                <div ng-show = "signUpForm.phone.$error.required"
+                     class="alert alert-danger col-xs-9">
+                    phone is required.
+                </div>
+                <div ng-show = "signUpForm.phone.$error.pattern"
+                     class="alert alert-danger col-xs-9">
+                    Invalid phone number. ###-###-#### required
+                </div>
+            </div>
+        <div class="label col-xs-3">favorate dish: </div>
+        <input name = "favoratedDish"
+               type = "text"
+               ng-model = "ctrl.user.favoratedDish"
+               length = "100"
+               required
+               class="col-xs-9"
+               placeholder="A2"
+               pattern="[A-Z]{1,2}\d{1,2}\b">
         <div class="row">
-            <span style = "color:red" ng-show = "signUpForm.lastname.$dirty && signUpForm.lastname.$invalid">
-                <span ng-show = "signUpForm.lastname.$error.required">Last Name is required.</span>
-                <span ng-show = "signUpForm.lastname.$error.pattern">sorry, letters only</span>
-            </span>
+            <div class="col-xs-3"></div>
+            <div ng-show = "signUpForm.favoratedDish.$error.pattern"
+                 class="row alert alert-danger col-xs-9">
+                Two UPPERCASE letter and numbers 0-99 required.
+            </div>
         </div>
-    <div class="label col-xs-3">e-mail: </div>
-    <input name = "email" type = "email" ng-model = "ctrl.user.email" length = "100" required class="col-xs-9"
-                   placeholder="John@Doe.sky" pattern="(\w+@\w+\.\w+)">
-    <div class="row">
-        <span style = "color:red" ng-show = "signUpForm.email.$dirty && signUpForm.email.$invalid">
-            <span ng-show = "signUpForm.email.$error.required">Email is required.</span>
-            <span ng-show = "signUpForm.email.$error.pattern">Invalid email address. at least '@' and '.'</span>
-        </span>
-    </div>
-    <div class="label col-xs-3">phone: </div>
-    <input name = "phone" type = "phone" ng-model = "ctrl.user.phone" length = "100" required class="col-xs-9"
-           pattern="(\d{3})-(\d{3})-(\d{4})" placeholder="Phone ###-###-####">
-    <div class="row">
-        <span style = "color:red" ng-show = "signUpForm.phone.$dirty && signUpForm.phone.$invalid">
-            <span ng-show = "signUpForm.phone.$error.required">phone is required.</span>
-            <span ng-show = "signUpForm.phone.$error.pattern">Invalid phone number. ###-###-#### required</span>
-        </span>
-    </div>
-    <div class="label col-xs-3">favorate dish: </div>
-    <input name = "favoratedDish" type = "text" ng-model = "ctrl.user.favoratedDish" length = "100" required class="col-xs-9"
-        placeholder="A2" pattern="[A-Z]{1,2}\d{1,2}\b">
-    <div class="row">
-        <span style = "color:red"
-              ng-show =   "signUpForm.favoratedDish.$dirty
-                        && signUpForm.favoratedDish.$invalid
-                        && !ctrl.error">
-            <span ng-show = "signUpForm.favoratedDish.$error.pattern">Two UPPERCASE letter and numbers 0-99 required.</span>
-            <span ng-show = "!ctrl.error">Invalid dish short_name.</span>
-        </span>
-    </div>
-    <div class="label col-xs-3">
-        <button ng-click = "ctrl.reset()">Reset</button>
-    </div>
-        <button class="col-xs-9" ng-disabled = "signUpForm.$error.length" ng-click="ctrl.submit()" class="{{signUpForm.$valid}}">Submit</button>
+        <div class="row">
+            <div class="col-xs-3"></div>
+            <div ng-show="ctrl.error"
+                 class="alert alert-danger col-xs-9">
+                No such menu number exists!
+            </div>
+        </div>
+        <div class="row">
+                <button ng-click = "ctrl.reset()"
+                        class="col-xs-3 {{signUpForm.$valid}}">
+                    Reset
+                </button>
+            <button class="col-xs-9 {{signUpForm.$valid}}"
+                    ng-disabled = "signUpForm.$error.length"
+                    ng-click="ctrl.submit()">
+                Submit
+            </button>
+        </div>
+        <div class="bjatta-allert">
+            <div class="row">
+                <div class="col-xs-3"></div>
+                <div class="alert alert-success col-xs-9"
+                     ng-show="ctrl.success">
+                    <span class="glyphicon glyphicon-ok"></span>
+                    Your data was submitted
+                </div>
+                <div class="alert alert-danger col-xs-9"
+                     ng-show="ctrl.error">
+                    <span class="glyphicon glyphicon-remove"></span>
+                    Your data was NOT submitted!
+                </div>
+            </div>
+        </div>
     </section>
-    <div class="bjatta-allert">
-        <div class="alert alert-success" ng-show="ctrl.success"> Your data was submitted</div>
-        <div class="alert alert-warning" ng-show="ctrl.error">Your data was NOT submitted:<br>Invalid dish short_name.</div>
-    </div>
 </form>
 </div>

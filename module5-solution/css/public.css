@@ -201,7 +201,11 @@ form input.ng-valid,button.true {
 form button {
   background-color: transparent;
 }
-form div.label {
+div.user-info {
+    display: inline-block;
+    text-align: left;
+}
+div.label {
   text-align: right;
   margin: 0.5em 0 0.5em 0;
   vertical-align: middle;
