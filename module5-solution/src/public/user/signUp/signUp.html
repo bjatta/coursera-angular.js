@@ -21,41 +21,43 @@
             </span>
         </div>
     <div class="label col-xs-3">e-mail: </div>
-            <input name = "email" type = "email" ng-model = "ctrl.user.email" length = "100" required class="col-xs-9"
+    <input name = "email" type = "email" ng-model = "ctrl.user.email" length = "100" required class="col-xs-9"
                    placeholder="John@Doe.sky" pattern="(\w+@\w+\.\w+)">
-        <div class="row">
-            <span style = "color:red" ng-show = "signUpForm.email.$dirty && signUpForm.email.$invalid">
+    <div class="row">
+        <span style = "color:red" ng-show = "signUpForm.email.$dirty && signUpForm.email.$invalid">
             <span ng-show = "signUpForm.email.$error.required">Email is required.</span>
-                <span ng-show = "signUpForm.email.$error.pattern">Invalid email address. at least '@' and '.'</span>
-            </span>
-            </div>
-        <div class="label col-xs-3">phone: </div>
-        <input name = "phone" type = "phone" ng-model = "ctrl.user.phone" length = "100" required class="col-xs-9"
-               pattern="(\d{3})-(\d{3})-(\d{4})" placeholder="Phone ###-###-####">
-        <div class="row">
-            <span style = "color:red" ng-show = "signUpForm.phone.$dirty && signUpForm.phone.$invalid">
-                <span ng-show = "signUpForm.phone.$error.required">phone is required.</span>
-                <span ng-show = "signUpForm.phone.$error.pattern">Invalid phone number. ###-###-#### required</span>
-            </span>
-        </div>
-        <div class="label col-xs-3">favorate dish: </div>
-        <input name = "favoratedDish" type = "text" ng-model = "ctrl.user.favoratedDish" length = "100" required class="col-xs-9"
-            placeholder="A2" pattern="[A-Z]{1,2}\d{1,2}\b">
-                    <div class="row">
+            <span ng-show = "signUpForm.email.$error.pattern">Invalid email address. at least '@' and '.'</span>
+        </span>
+    </div>
+    <div class="label col-xs-3">phone: </div>
+    <input name = "phone" type = "phone" ng-model = "ctrl.user.phone" length = "100" required class="col-xs-9"
+           pattern="(\d{3})-(\d{3})-(\d{4})" placeholder="Phone ###-###-####">
+    <div class="row">
+        <span style = "color:red" ng-show = "signUpForm.phone.$dirty && signUpForm.phone.$invalid">
+            <span ng-show = "signUpForm.phone.$error.required">phone is required.</span>
+            <span ng-show = "signUpForm.phone.$error.pattern">Invalid phone number. ###-###-#### required</span>
+        </span>
+    </div>
+    <div class="label col-xs-3">favorate dish: </div>
+    <input name = "favoratedDish" type = "text" ng-model = "ctrl.user.favoratedDish" length = "100" required class="col-xs-9"
+        placeholder="A2" pattern="[A-Z]{1,2}\d{1,2}\b">
+    <div class="row">
         <span style = "color:red"
               ng-show =   "signUpForm.favoratedDish.$dirty
                         && signUpForm.favoratedDish.$invalid
                         && !ctrl.error">
-    <span ng-show = "signUpForm.favoratedDish.$error.pattern">Two UPPERCASE letter and numbers 0-99 required.</span>
-        <span ng-show = "!ctrl.error">Invalid dish short_name.</span>
-            </span>
-                    </div>
-        <div class="alert" ng-show="ctrl.error">Invalid dish short_name.</div>
+            <span ng-show = "signUpForm.favoratedDish.$error.pattern">Two UPPERCASE letter and numbers 0-99 required.</span>
+            <span ng-show = "!ctrl.error">Invalid dish short_name.</span>
+        </span>
+    </div>
     <div class="label col-xs-3">
         <button ng-click = "ctrl.reset()">Reset</button>
     </div>
         <button class="col-xs-9" ng-disabled = "signUpForm.$error.length" ng-click="ctrl.submit()" class="{{signUpForm.$valid}}">Submit</button>
     </section>
-    <div class="alert" ng-show="ctrl.success"> Your data was submitted</div>
+    <div class="bjatta-allert">
+        <div class="alert alert-success" ng-show="ctrl.success"> Your data was submitted</div>
+        <div class="alert alert-warning" ng-show="ctrl.error">Your data was NOT submitted:<br>Invalid dish short_name.</div>
+    </div>
 </form>
 </div>

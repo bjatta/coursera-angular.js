@@ -30,10 +30,8 @@ function MenuService($http, ApiPath) {
     };
     service.setUserInfo = function (user) {
         service.user = user;
-        console.log('set:',service.user);
     };
     service.getUserInfo = function () {
-        console.log('get:',service.user);
         return service.user;
     };
 }

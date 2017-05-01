@@ -210,10 +210,14 @@ form.sign-up {
   width: 70%;
   display: inline-block;
   background-color: transparent;
-  margin: 2rem auto 2rem;
+  margin: 4em auto 4em;
   text-align: center;
   padding-right: 1em;
 }
 ui-view.ng-scope {
   text-align: center;
+}
+div.bjatta-allert {
+  position: relative;
+  top: 3em;
 }

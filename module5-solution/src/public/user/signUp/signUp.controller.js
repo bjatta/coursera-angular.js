@@ -24,7 +24,6 @@ function SignUpController(MenuService) {
             phone:'555-222-7777',
             favoratedDish:'SP4',
         };
-    console.log($ctrl.user);
     $ctrl.submit = function() {
         MenuService.getMenuItemsByShortNames($ctrl.user.favoratedDish).then(function (response) {
             $ctrl.user.dish = response.data;

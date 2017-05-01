@@ -1,31 +1,28 @@
-<body>
-    <h1>My Info</h1>
-    <div ng-if="mi.user.firstName">
-        <section class="row user-info">
-            <div class="col-xs-2 label">first name:</div>    <div class="col-xs-2">{{ mi.user.firstName }}</div>
-            <div class="col-xs-2 label">e-mail:</div>        <div class="col-xs-2">{{ mi.user.email }}</div>
-        </section>
-        <section class="row user-info">
-            <div class="col-xs-2 label">last name:</div>     <div class="col-xs-2">{{ mi.user.lastName }}</div>
-            <div class="col-xs-2 label">phone:</div>        <div class="col-xs-2">{{ mi.user.phone }}</div>
-        </section>
-        <div class="menu-item-tile col-md-6">
-            <div class="row">
-                <div class="col-sm-5">
-                    <div class="menu-item-photo">
-                        <div>{{mi.user.favoratedDish}}</div>
-                        <img class="img-responsive" width="250" height="150" ng-src="{{mi.basePath}}/images/{{mi.user.dish.short_name}}.jpg" alt="{{mi.user.dish.name}}">
-                    </div>
-                    <div class="menu-item-price">{{mi.user.dish.price_small | currency}}<span> {{mi.user.dish.small_portion_name}}</span> {{mi.user.dish.price_large | currency}} <span>{{mi.user.dish.large_portion_name}}</span></div>
+<h1>My Info</h1>
+<div ng-if="mi.user.firstName">
+    <section class="row user-info">
+        <div class="col-xs-2 label">first name:</div>    <div class="col-xs-2">{{ mi.user.firstName }}</div>
+        <div class="col-xs-2 label">e-mail:</div>        <div class="col-xs-2">{{ mi.user.email }}</div>
+    </section>
+    <section class="row user-info">
+        <div class="col-xs-2 label">last name:</div>     <div class="col-xs-2">{{ mi.user.lastName }}</div>
+        <div class="col-xs-2 label">phone:</div>        <div class="col-xs-2">{{ mi.user.phone }}</div>
+    </section>
+    <div class="menu-item-tile col-md-6">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="menu-item-photo">
+                    <div>{{mi.user.favoratedDish}}</div>
+                    <img class="img-responsive" width="250" height="150" ng-src="{{mi.basePath}}/images/{{mi.user.dish.short_name}}.jpg" alt="{{mi.user.dish.name}}">
                 </div>
-                <div class="menu-item-description col-sm-7">
-                    <h3 class="menu-item-title">{{mi.user.dish.name}}</h3>
-                    <p class="menu-item-details">{{mi.user.dish.description}}</p>
-                </div>
+                <div class="menu-item-price">{{mi.user.dish.price_small | currency}}<span> {{mi.user.dish.small_portion_name}}</span> {{mi.user.dish.price_large | currency}} <span>{{mi.user.dish.large_portion_name}}</span></div>
             </div>
-            <hr class="visible-xs">
+            <div class="menu-item-description col-sm-7">
+                <h3 class="menu-item-title">{{mi.user.dish.name}}</h3>
+                <p class="menu-item-details">{{mi.user.dish.description}}</p>
+            </div>
         </div>
+        <hr class="visible-xs">
     </div>
-    <div ng-if="!mi.user.firstName"> <a ui-sref="public.signUp"  ui-sref-active="active"> SignUp first !</div>
-</body>
-</html>
+</div>
+<div ng-if="!mi.user.firstName"> <a ui-sref="public.signUp"  ui-sref-active="active"> SignUp first !</div>
