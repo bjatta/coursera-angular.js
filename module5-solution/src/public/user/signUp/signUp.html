@@ -44,16 +44,18 @@
                     <div class="row">
         <span style = "color:red"
               ng-show =   "signUpForm.favoratedDish.$dirty
-                        && signUpForm.favoratedDish.$invalid">
+                        && signUpForm.favoratedDish.$invalid
+                        && !ctrl.error">
     <span ng-show = "signUpForm.favoratedDish.$error.pattern">Two UPPERCASE letter and numbers 0-99 required.</span>
-        <span ng-show = "ctrl.$error">Invalid dish short_name.</span>
+        <span ng-show = "!ctrl.error">Invalid dish short_name.</span>
             </span>
                     </div>
+        <div class="alert" ng-show="ctrl.error">Invalid dish short_name.</div>
     <div class="label col-xs-3">
         <button ng-click = "ctrl.reset()">Reset</button>
     </div>
         <button class="col-xs-9" ng-disabled = "signUpForm.$error.length" ng-click="ctrl.submit()" class="{{signUpForm.$valid}}">Submit</button>
     </section>
-    {{ signUpForm.$error.pattern }}
+    <div class="alert" ng-show="ctrl.success"> Your data was submitted</div>
 </form>
 </div>
