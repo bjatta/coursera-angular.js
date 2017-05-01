@@ -7,28 +7,34 @@ angular.module('common')
 
 MenuService.$inject = ['$http', 'ApiPath'];
 function MenuService($http, ApiPath) {
-  var service = this;
+    var service = this;
 
-  service.getCategories = function () {
+    service.getCategories = function () {
     return $http.get(ApiPath + '/categories.json').then(function (response) {
       return response.data;
-    });
-  };
+        });
+    };
 
-
-  service.getMenuItems = function (category) {
-    var config = {};
+    service.getMenuItems = function (category) {
+    let config = {};
     if (category) {
       config.params = {'category': category};
     }
 
     return $http.get(ApiPath + '/menu_items.json', config).then(function (response) {
-      return response.data;
-    });
-  };
-
-  service.getMenuItemsShortNames = function(){
-    return service.getMenuItems().menu_items;
-    }
+        return response.data;
+        });
+    };
+    service.getMenuItemsByShortNames = function(shortName) {
+      return $http.get(ApiPath + '/menu_items/' + shortName + '.json');
+    };
+    service.setUserInfo = function (user) {
+        service.user = user;
+        console.log('set:',service.user);
+    };
+    service.getUserInfo = function () {
+        console.log('get:',service.user);
+        return service.user;
+    };
 }
 })();
