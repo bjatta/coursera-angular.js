@@ -9,9 +9,14 @@ angular.module('public')
 SignUpController.$inject = ['MenuService'];
 function SignUpController(MenuService) {
     var $ctrl = this;
-    $ctrl.user=MenuService.getUserInfo();
+    $ctrl.user= MenuService.getUserInfo() || {
+            firstName:'Jonh',
+            lastName:'Doe',
+            email:'John@Doe.sky',
+            phone:'555-222-777',
+            favoratedDish:'SP4',
+        };
     console.log($ctrl.user);
-
     $ctrl.submit = function() {
         console.log('on submit:',$ctrl.user);
         MenuService.getMenuItemsByShortNames($ctrl.user.favoratedDish).then(function (response) {
